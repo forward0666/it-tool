@@ -8,6 +8,7 @@ RUN pnpm exec vite build
 FROM nginx:1.30.1
 RUN mkdir -p /www/wwwroot /var/run/nginx /var/cache/nginx
 COPY --from=builder /app/dist/ /www/wwwroot/
+RUN cat /www/wwwroot/index.html | grep assets
 RUN chown -R nginx:nginx /www/wwwroot \
  && chown -R nginx:nginx /var/cache/nginx \
  && chown -R nginx:nginx /var/run/ \
