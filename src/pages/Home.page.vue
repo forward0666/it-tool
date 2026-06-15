@@ -22,7 +22,7 @@ function onUpdateFavoriteTools() {
 </script>
 
 <template>
-  <div class="pt-50px">
+  <div class="pt-20px">
     <div class="grid-wrapper">
       <div class="grid grid-cols-1 gap-12px lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 xl:grid-cols-4">
         <ColoredCard v-if="config.showBanner" :title="$t('home.follow.title')" :icon="IconHeart">
@@ -76,7 +76,7 @@ function onUpdateFavoriteTools() {
         </div>
       </div>
 
-      <h3 class="mb-5px mt-25px text-neutral-400 font-500">
+      <h3 class="mb-2px mt-5px text-neutral-400 font-500 text-sm">
         {{ $t('home.categories.allTools') }}
       </h3>
       <div class="grid grid-cols-1 gap-12px lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 xl:grid-cols-4">

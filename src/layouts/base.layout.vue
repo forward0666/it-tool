@@ -51,10 +51,6 @@ const tools = computed<ToolCategory[]>(() => [
       <div class="sider-content">
         <div v-if="styleStore.isSmallScreen" flex flex-col items-center>
           <locale-selector w="90%" />
-
-          <div flex justify-center>
-            <NavbarButtons />
-          </div>
         </div>
 
         <CollapsibleToolMenu :tools-by-category="tools" />
@@ -62,29 +58,17 @@ const tools = computed<ToolCategory[]>(() => [
         <div class="footer">
           <div>
             IT-Tools
-
             <c-link target="_blank" rel="noopener" :href="`https://github.com/CorentinTh/it-tools/tree/v${version}`">
               v{{ version }}
             </c-link>
-
             <template v-if="commitSha && commitSha.length > 0">
               -
-              <c-link
-                target="_blank"
-                rel="noopener"
-                type="primary"
-                :href="`https://github.com/CorentinTh/it-tools/tree/${commitSha}`"
-              >
+              <c-link target="_blank" rel="noopener" type="primary" :href="`https://github.com/CorentinTh/it-tools/tree/${commitSha}`">
                 {{ commitSha }}
               </c-link>
             </template>
           </div>
-          <div>
-            © {{ new Date().getFullYear() }}
-            <c-link target="_blank" rel="noopener" href="https://corentin.tech?utm_source=it-tools&utm_medium=footer">
-              Corentin Thomasset
-            </c-link>
-          </div>
+          <div>© {{ new Date().getFullYear() }} IT-Tools</div>
         </div>
       </div>
     </template>
@@ -117,23 +101,7 @@ const tools = computed<ToolCategory[]>(() => [
         <locale-selector v-if="!styleStore.isSmallScreen" />
 
         <div>
-          <NavbarButtons v-if="!styleStore.isSmallScreen" />
         </div>
-
-        <c-tooltip position="bottom" :tooltip="$t('home.support')">
-          <c-button
-            round
-            href="https://www.buymeacoffee.com/cthmsst"
-            rel="noopener"
-            target="_blank"
-            class="support-button"
-            :bordered="false"
-            @click="() => tracker.trackEvent({ eventName: 'Support button clicked' })"
-          >
-            {{ $t('home.buyMeACoffee') }}
-            <NIcon v-if="!styleStore.isSmallScreen" :component="Heart" ml-2 />
-          </c-button>
-        </c-tooltip>
       </div>
       <slot />
     </template>
