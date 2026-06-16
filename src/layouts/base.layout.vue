@@ -100,8 +100,7 @@ const tools = computed<ToolCategory[]>(() => [
 
         <locale-selector v-if="!styleStore.isSmallScreen" />
 
-        <div>
-        </div>
+        <NavbarButtons />
       </div>
       <slot />
     </template>
